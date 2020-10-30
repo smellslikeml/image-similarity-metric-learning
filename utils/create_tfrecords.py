@@ -37,7 +37,7 @@ def _int64_feature(value):
     except:
         return tf.train.Feature(int64_list=tf.train.Int64List(value=value))
 
-def image_example(filename, label, flip=False): 
+def image_example(filename, label, flip=False):
     image_string = open(filename, 'rb').read()
     image_array = tf.image.decode_jpeg(image_string)
     filename = filename.split("/")[-1]
@@ -50,7 +50,7 @@ def image_example(filename, label, flip=False):
 
 def process_df(df, image_col, data_dir):
     """
-    Takes pandas dataframe and returns list of 
+    Takes pandas dataframe and returns list of
     image paths and list of labels
     """
     images = df[image_col].tolist()
@@ -67,7 +67,7 @@ def create_records(df, image_col, data_dir, output_dir, num_of_records=10, prefi
     images, labels = process_df(df, image_col, data_dir)
 
     record_prefix = os.path.join(output_dir, prefix)
-    files_per_record = int(len(images) / num_of_records)  #approximate number of images per record 
+    files_per_record = int(len(images) / num_of_records)  #approximate number of images per record
     chunk_number = 0
 
     for i in range(0, len(images), files_per_record):
