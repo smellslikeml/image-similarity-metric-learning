@@ -4,12 +4,9 @@ import glob
 import numpy as np
 import pandas as pd
 import configparser
-import seaborn as sns
 from annoy import AnnoyIndex
 import matplotlib.pyplot as plt
 from PIL import Image, ImageFile
-from sklearn import random_projection
-from sklearn.metrics.pairwise import cosine_similarity
 
 from mpl_toolkits.axes_grid1 import ImageGrid
 
